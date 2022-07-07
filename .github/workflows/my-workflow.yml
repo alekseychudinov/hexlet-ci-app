@@ -12,8 +12,15 @@ jobs:
       # экшен, выполняет какую-то задачу
       # checkout – клонирует репозиторий
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      # Ставим зависимости
+      - run: npm install
+      - run: npm run build
+      - run: make start 
+      # Запускаем линтер
+      - run: npm run lint
       # run – произвольная bash-команда
       # ls -la выведет содержимое текущего репозитория
       #- run: make setup
       #- run: make test
-      - run: make lint
+     # - run: make lint
