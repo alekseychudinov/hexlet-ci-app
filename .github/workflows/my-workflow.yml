@@ -15,11 +15,13 @@ jobs:
       - uses: actions/setup-node@v1
       - uses: wearerequired/lint-action@v2
       # Ставим зависимости
-      - run: npm install
-      - run: npm run build
+      - run: make setup
+      #- run: npm install
+    #  - run: npm run build
       - run: make start 
       # Запускаем линтер
-      - run: npm run lint
+      - run: make lint
+      #- run: npm run lint
       - run: make test
       # run – произвольная bash-команда
       # ls -la выведет содержимое текущего репозитория
